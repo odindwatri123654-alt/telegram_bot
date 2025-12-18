@@ -1,22 +1,3 @@
-import asyncio
-import logging
-import sys
-from typing import Optional
-
-from aiogram import Bot, Dispatcher, html, F
-from aiogram.client.default import DefaultBotProperties
-from aiogram.enums import ParseMode
-from aiogram.filters import CommandStart
-from aiogram.types import (
-    Message,
-    CallbackQuery,
-    InlineKeyboardButton,
-    InlineKeyboardMarkup,
-    InputFile,
-)
-from aiogram.utils.keyboard import InlineKeyboardBuilder
-
-from people import PEOPLE
 from flask import Flask
 from threading import Thread
 import time
@@ -38,6 +19,29 @@ def keep_alive():
 # Запускаем веб-сервер ДО запуска бота
 keep_alive()
 print("✅ Веб-сервер запущен для UptimeRobot")
+
+
+
+import asyncio
+import logging
+import sys
+from typing import Optional
+
+from aiogram import Bot, Dispatcher, html, F
+from aiogram.client.default import DefaultBotProperties
+from aiogram.enums import ParseMode
+from aiogram.filters import CommandStart
+from aiogram.types import (
+    Message,
+    CallbackQuery,
+    InlineKeyboardButton,
+    InlineKeyboardMarkup,
+    InputFile,
+)
+from aiogram.utils.keyboard import InlineKeyboardBuilder
+
+from people import PEOPLE
+
 
 TOKEN = "8388660314:AAEaZsAIlheJrEQxzSm36zkz4AIo5IDj8tY"
 
@@ -236,3 +240,4 @@ if __name__ == "__main__":
     logger.info("Запуск бота")
 
     asyncio.run(main())
+
