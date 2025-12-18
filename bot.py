@@ -17,6 +17,27 @@ from aiogram.types import (
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 
 from people import PEOPLE
+from flask import Flask
+from threading import Thread
+import time
+
+# Создаем Flask-сервер
+app = Flask('')
+
+@app.route('/')
+def home():
+    return "Bot is alive! ✅"
+
+def run():
+    app.run(host='0.0.0.0', port=8080)
+
+def keep_alive():
+    t = Thread(target=run, daemon=True)
+    t.start()
+
+# Запускаем веб-сервер ДО запуска бота
+keep_alive()
+print("✅ Веб-сервер запущен для UptimeRobot")
 
 TOKEN = "8388660314:AAEaZsAIlheJrEQxzSm36zkz4AIo5IDj8tY"
 
@@ -213,4 +234,5 @@ async def main() -> None:
 
 if __name__ == "__main__":
     logger.info("Запуск бота")
+
     asyncio.run(main())
